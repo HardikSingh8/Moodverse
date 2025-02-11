@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodVerse - Turn Feelings into Poetry</title>
+    
+    <!-- External Libraries -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script defer src="https://unpkg.com/rita@2.8.31/dist/rita.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --happy-bg: linear-gradient(135deg, #ff9966, #ff5e62);
+            --sad-bg: linear-gradient(135deg, #3a7bd5, #3a6073);
+            --neutral-bg: linear-gradient(135deg, #636363, #a2ab58);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+            transition: background 0.5s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #inputArea {
+            width: 100%;
+            height: 120px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            resize: none;
+        }
+
+        button {
+            display: block;
+            margin: 1.5rem auto;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            background: #ffffff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        #poemContainer {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            min-height: 200px;
+            position: relative;
+        }
+
+        #poem {
+            white-space: pre-wrap;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MoodVerse</h1>
+            <p>Share your feelings and receive a personalized poem</p>
+        </header>
+
+        <textarea 
+            id="inputArea" 
+            placeholder="How are you feeling today? Write a few sentences..."
+        ></textarea>
+        
+        <button onclick="generatePoem()">Create My Poem</button>
+
+        <div id="poemContainer">
+            <div class="loading hidden">✍️ Weaving your poetic verse...</div>
+            <div id="poem"></div>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
