@@ -105,10 +105,6 @@ You can modify the word banks and visual effects in `sketch.js`:
 - [ ] Include background music based on mood
 - [ ] Add more interactive visual elements
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - Inspired by the intersection of technology and emotional expression
